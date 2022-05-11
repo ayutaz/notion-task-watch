@@ -3,8 +3,11 @@ name: code style
 on:
   pull_request:
   push:
-    branches:
+    paths:
       - '*.py'
+    branches:
+      - 'main'
+      - 'develop'
 
 jobs:
   lint:
