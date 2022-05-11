@@ -62,7 +62,7 @@ class DBHandler:
         self.notion.pages.update(
             page_id,
             properties={
-                '日付': {
+                '完了日時': {
                     'date': {
                         'start': today,
                         'time_zone': 'Asia/Tokyo'
