@@ -8,6 +8,30 @@ class DBHandler:
         self.notion_token = notion_token
         self.notion = Client(auth=self.notion_token)
 
+    def get_doing_task_db(self, db_id: str) -> dict:
+        db = self.notion.databases.query(
+            **{
+                'database_id': db_id,
+                "filter": {
+                    "and": [
+                        {
+                            "property": "期日",
+                            "date": {
+                                "is_not_empty": True
+                            }
+                        },
+                        {
+                            "property": "期限",
+                            "select": {
+                                "does_not_equal": 'Done'
+                            }
+                        }
+                    ]
+                }
+            }
+        )
+        return db['results']
+
     def get_done_task_db(self, db_id: str) -> dict:
         db = self.notion.databases.query(
             **{
@@ -21,7 +45,7 @@ class DBHandler:
                             }
                         },
                         {
-                            "property": "日付",
+                            "property": "完了日時",
                             "date": {
                                 "is_empty": True
                             }
