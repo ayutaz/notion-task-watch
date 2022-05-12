@@ -3,6 +3,7 @@ name: task watch
 on:
   schedule:
     - cron: '*/10 * * * *'
+  workflow_dispatch:
 
 jobs:
   watch-task:
