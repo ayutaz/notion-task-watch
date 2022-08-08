@@ -33,3 +33,4 @@ db_handler = DBHandler(os.getenv("NOTION_TOKEN"))
 
 TaskWatch(os.getenv("PRIVATE_DB"))
 TaskWatch(os.getenv("WORK_DB"))
+TaskWatch(os.getenv("
