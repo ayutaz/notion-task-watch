@@ -26,6 +26,7 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           PRIVATE_DB: ${{ secrets.PRIVATE_DB }}
           WORK_DB: ${{ secrets.WORK_DB }}
+          SIDEWORK_DB: ${{secrets.SIDEWORK_DB }}
           TZ: "Asia/Tokyo"
         run: |
           python Main.py
